@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<script type="text/javascript" src="./src/codesnap.js"></script>
+</head>
+
+<style>
+* {
+  color: #555;
+  line-height: 1.6em;
+}
+#sample-box {
+  padding: 1em;
+  width: 80%;
+  min-width: 640px;
+  margin: auto;
+}
+pre {
+  font-size: 14px;
+  padding: 4px;
+  border: 1px solid #aaa;
+}
+pre.codesnap-exception {
+  background: #fccccc;
+}
+
+.codesnap-title {
+  font-size: 1.8em;
+  margin-top: 1em;
+}
+
+.codesnap-description {
+  padding: .5em;
+  margin-top: .5em;
+  border: 1px dashed #aaa;
+
+}
+</style>
+
+<body>
+
+<div id="sample-box"></div>
+
+<script type="text/javascript">
+(new CodeSnap({
+  wrapper: 'sample-box',
+  files: [
+    ["sample1",
+      {
+        //title: 'Sample 1', No title. Uses file[0] value.
+        description: "<b>Notice</b>: This is an error example.<br>'.codesnap-exception' will be added to each wrapper and pre tags."
+      },
+      {
+        error: function(e, file){
+          console.error('This is a error callback of ' + file.name);
+        }
+      }
+    ],
+    ["sample2",
+      {
+        title: 'Sample 2',
+        param: {}
+      },
+      {
+        complete: function(file){
+          console.log('Complete callback of ' + file.name);
+        }
+      }
+    ],
+    "sample3"
+  ],
+  events: {
+    loaded: function(f){
+      console.log(f.name + ' loaded');
+    },
+    indexed: function(wrapper, anchor, file){
+      var p = document.createElement("DIV");
+      anchor.innerHTML = file.name + ' - ' + file.title;
+      anchor.style.margin = '4px';
+      p.appendChild(anchor);
+      wrapper.appendChild(p);
+    }
+  }
+})).load();
+</script>
+
+</body>
+
+</html>

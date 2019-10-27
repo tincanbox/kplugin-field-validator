@@ -1,0 +1,6 @@
+kintone-plugin-uploader dist/plugin.zip \
+  --watch \
+  --waiting-dialog-ms 3000 \
+  --domain YOURDOMAIN \
+  --username YOURNAME \
+  --password YOURPASS

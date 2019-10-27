@@ -1,0 +1,42 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended"
+  ],
+  "env": {
+    "env": { "browser": true, "node": true, "es6": true },
+    "es6": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2018
+  },
+  "rules": {
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+
+    "process": true,
+    "__dirname": true,
+    "define": true,
+    "require": true,
+    "jQuery": true,
+    "FM": true,
+    "$": true,
+    "_": true,
+
+    "KLUGINN_NAMESPACE": true,
+    "Kluginn__Config": true,
+    "Kluginn__UI": true,
+    "Kluginn__API": true,
+
+    "kintone": true,
+    "Swal": true
+  }
+}

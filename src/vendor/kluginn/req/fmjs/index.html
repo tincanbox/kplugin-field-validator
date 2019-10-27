@@ -1,0 +1,957 @@
+<html>
+
+<head>
+<title>FMJS</title>
+<script type="text/javascript" src="./src/fm.js"></script>
+<script src="./asset/codesnapjs/src/codesnap.js"></script>
+
+<link rel="stylesheet" href="./asset/extra/prism/prism.css">
+<script type="text/javascript" src="./asset/extra/prism/prism.js" data-default-language="javascript"></script>
+
+<style>
+
+body {
+  font-family: Geogia;
+  word-wrap: break-word;
+}
+
+h1 {
+  font-size: 3.2em;
+}
+
+#content {
+  width: 96%;
+  max-width: 800px;
+  margin: auto;
+}
+
+pre>code {
+  font-size: .9em;
+}
+
+#codesnap-index {
+  margin-bottom: 4.8em;
+  display: table;
+}
+
+.codesnap-index-anchor {
+  margin: 4px;
+  color: #555;
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid #ccc;
+    padding: .1em .4em;
+}
+.index-row {
+  display: table-row;
+}
+.index-row > * {
+  display: table-cell;
+  border-top: 1px dashed #ddd;
+  padding: .6em 0;
+}
+.index-caption {
+  min-width: 80px;
+}
+.index-caption a {
+  text-decoration: none;
+  color: #777;
+  font-size: 1.2em;
+  display: block;
+}
+.index-caption a:hover {
+  background-color: #efefef;
+}
+.index-content {
+}
+
+.codesnap-container {
+  margin-bottom: 2.4em;
+}
+
+.codesnap-title {
+  font-size: 2em;
+  margin-bottom: .2em;
+}
+
+.codesnap-result {
+  margin-top: .2em !important;
+}
+
+.codesnap-result-caption {
+  margin-top: .8em;
+  border-top: 1px dashed #ccc;
+  padding-top: .1em;
+  color: #aaa;
+}
+
+.codesnap-description  {
+}
+.codesnap-description pre {
+  padding: .6em;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  background-color: #fefefa;
+}
+.codesnap-description .caution {
+  color: #f86;
+  font-family: sans-serif;
+}
+
+.active {
+  background-color: #efefaa;
+}
+
+#gotoindex {
+  font-size: 1.4em;
+  display: block;
+  position: fixed;
+  right: 20px;
+  top: -40px;
+  padding: 12px;
+  padding-top: 52px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #555;
+  transition: all .3s;
+  background-color: rgba(255,255,255, .40);
+}
+
+#gotoindex:hover {
+  background-color: rgba(211,211,211, .75);
+}
+
+.button {
+  padding: .4em;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  outline: none;
+  margin: .2em;
+  cursor: pointer;
+}
+
+.button:hover {
+  border: 1px solid #aaa;
+}
+
+.button:active {
+  background-color: #efefef;
+}
+
+.button:focus {
+  box-shadow: 0 1px 4px rgba(0,0,0,.15);
+}
+
+li {
+}
+  li>span:first-of-type {
+    font-weight: bold;
+  }
+  li>span{
+    font-family: monospace;
+    display: inline-block;
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<div id="content" class="language-javascript">
+  <h1>FMJS</h1>
+  <p>A Collection of tiny helpers. "Functions by Matooy for JavaScript"</p>
+  <p>All functions is contained specific namespaces.</p>
+  <ul>
+    <li>
+      <span>vr.</span>
+      <span>variable</span>
+    </li>
+    <li>
+      <span>ob.</span>
+      <span>object</span>
+    </li>
+    <li>
+      <span>ar.</span>
+      <span>array</span>
+    </li>
+    <li>
+      <span>st.</span>
+      <span>string</span>
+    </li>
+    <li>
+      <span>fn.</span>
+      <span>function</span>
+    </li>
+    <li>
+      <span>event.</span>
+      <span>Event create/bind/unbind/trigger</span>
+    </li>
+    <li>
+      <span>dom.</span>
+      <span>DOM query/manipulation</span>
+    </li>
+    <li>
+      <span>html.</span>
+      <span>HTML string manipulation</span>
+    </li>
+    <li>
+      <span>date.</span>
+      <span>Date object wrapper</span>
+    </li>
+    <li>
+      <span>time.</span>
+      <span>Time-based helpers</span>
+    </li>
+    <li>
+      <span>math. *reserved</span>
+      <span>Math</span>
+    </li>
+    <li>
+      <span>regexp.</span>
+      <span>regular expression</span>
+    </li>
+    <li>
+      <span>file.</span>
+      <span>File reader</span>
+    </li>
+  </ul>
+</div>
+
+<a id="gotoindex" href="#codesnap-index">&#8862;</a>
+
+<script>
+
+var files = [
+  ['vr.type', {
+    title: 'vr.type',
+    description:
+      "<pre>"
+      + "( a\n"
+      + ")-> String</pre>"
+      + "Return variable type as string."
+
+  }],
+  ['vr.is_empty', {
+    title: 'vr.is_empty',
+    description:
+      "<pre>"
+      + "( a\n"
+      + ")-> Boolean</pre>"
+      + "Check variable is empty."
+  }],
+  ['vr.is_not_empty', {
+    title: 'vr.is_not_empty',
+    description:
+      "<pre>"
+      + "( a\n"
+      + ")-> Boolean</pre>"
+      + "Check variable is NOT empty.<br>"
+      + "Same as `!vr.is_empty(v)`.<br>"
+  }],
+  ['vr.valid', {
+    title: 'vr.valid',
+    description:
+      "Checks variable's type is matched. In 2nd argument, array means available types list."
+      + "<pre>"
+      + "( a\n"
+      + "  String|Array = from ['array','object','integer','float','function','number','string']\n"
+      + ")-> Boolean</pre>"
+  }],
+  ['vr.cast', {
+    title: 'vr.cast',
+    description:
+      "Casts variables to specified types."
+      + "<pre>"
+      + "( a\n"
+      + "  String = from ['array','object','integer','function','string']\n"
+      + ")-> b</pre>"
+  }],
+  ['vr.is_void', {
+    title: 'vr.is_void',
+    description:
+      "<pre>"
+      + "( a\n"
+      + ") -> Boolean</pre>"
+      + "Check variable is 'void'.<br>"
+      + "Primitive values which don't have any referencable properties or constructor.<br>"
+  }],
+  ['vr.is_object', {
+    title: 'vr.is_object[=vr.is_o]',
+    description: "Check variable is an Object."
+  }],
+  ['vr.is_array', {
+    title: 'vr.is_array[=vr.is_a]',
+    description: "Check variable is an Array."
+  }],
+  ['vr.is_function', {
+    title: 'vr.is_functon[=vr.is_f]',
+    description: "Check variable is a Function."
+  }],
+  ['vr.is_string', {
+    title: 'vr.is_string[=vr.is_s]',
+    description: "Check variable is a String."
+  }],
+  ['vr.is_integer', {
+    title: 'vr.is_integer[=vr.is_i]',
+    description: "Check variable is an Integer."
+  }],
+  ['vr.is_boolean', {
+    title: 'vr.is_boolean[=vr.is_b]',
+    description: "Check variable is a Boolean."
+  }],
+  ['vr.to_object', {
+    title: 'vr.to_object[=vr.to_o]',
+    description: "Casts variable to an object"
+  }],
+  ['vr.to_array', {
+    title: 'vr.to_array[=vr.to_a]',
+    description: "Casts variable to an array"
+  }],
+  ['vr.to_function', {
+    title: 'vr.to_function[=vr.to_f]',
+    description: "Casts variable to a function."
+  }],
+  ['vr.to_string', {
+    title: 'vr.to_string[=vr.to_s]',
+    description: "Casts variable to a string."
+  }],
+  ['vr.to_integer', {
+    title: 'vr.to_integer[=vr.to_i]',
+    description: "Casts variable to an integer."
+  }],
+  ['ob.valid', {
+    title: 'ob.valid',
+    description:
+      "Validates Object."
+      + "<pre>"
+      + "( Object\n"
+      + "  String|Array = Property names, String concatenated by '.' | Array.\n"
+      + "  a             = Default value for when function failed to find property.\n"
+      + ") -> Boolean</pre>"
+  }],
+  ['ob.each', {
+    title: 'ob.each',
+    description:
+      "Iterates Object key-value."
+      + "<pre>"
+      + "( Object\n"
+      + "  Function(Integer, a, Object)\n"
+      + ") -> Object"
+      + "</pre>"
+  }],
+  ['ob.filter', {
+    title: 'ob.filter',
+    description:
+      "Iterates Object key-value and returns new object which is applied filter."
+      + "<pre>"
+      + "( Object\n"
+      + "  Function(Integer, Mixed, Object)\n"
+      + ") -> Object"
+      + "</pre>"
+  }],
+  ['ob.merge', {
+    title: "ob.merge",
+    description:
+      "Merge objects to Object at the first argument."
+      + "<pre>"
+      + "( Object\n"
+      + "  ...\n"
+      + ")-> Object</pre>"
+  }],
+  ['ob.combine', {
+    title: "ob.combine",
+    description:
+      "Combine 2nd object to 1st object."
+      + "<pre>"
+      + "( Object\n"
+      + "  Object\n"
+      + ")-> Object</pre>"
+  }],
+  ['ob.assign', {
+    title: 'ob.assign',
+    description:
+      "Clone new property recursively."
+      + "<pre>"
+      + "( Object\n"
+      + "  String\n"
+      + "  a\n"
+      + ")-> Boolean</pre>"
+  }],
+  ['ob.prop', {
+    title: 'ob.prop',
+    description:
+      "Wrapper function for Object.defineProperty"
+      + "<pre>"
+      + "( Object\n"
+      + "  String\n"
+      + "  a\n"
+      + "  Object = Configuration\n"
+      + ")-> Object</pre>"
+  }],
+  ['ob.define', {
+    title: 'ob.define',
+    description:
+      "Simple object definitaion creater."
+      + "<pre>"
+      + "( Object\n"
+      + ")-> Function(Object)</pre>"
+  }],
+  ['ob.thaw', {
+    title: 'ob.thaw',
+    description:
+      "Pick specific property as string"
+      + "<pre>"
+      + "( Object\n"
+      + "  String|Array = Property names, String concatenated by '.' | Array.\n"
+      + "  a             = Default value for when function failed to find property.\n"
+      + ")-> Boolean</pre>"
+  }],
+  ['ob.include', {
+    title: 'ob.include',
+    description:
+      "Merge fn.pack result to an object."
+      + "<pre>"
+      + "( Object\n"
+      + "  Array = List of packing functions.\n"
+      + ")-> Object"
+      + "</pre>"
+  }],
+  ['ob.diff', {
+    title: 'ob.diff',
+    description:
+      "Finds differences and stucks all differences to an Object."
+      + "<pre>"
+      + "( Object = Objects which may have differences between them.\n"
+      + "  ...\n"
+      + ")-> Object"
+      + "</pre>"
+  }],
+  ['ob.serialize', {
+    title: 'ob.serialize',
+    description:
+      "Serializes Object to [Key, Value] list"
+      + "<pre>"
+      + "( Object\n"
+      + "  ?Array = Additional depth\n"
+      + ")-> Object"
+      + "</pre>"
+  }],
+  ['ob.unserialize', {
+    title: 'ob.unserialize',
+    description:
+      "Unserializes serialized [Key, Value] list."
+      + "<pre>"
+      + "( Array = List of [Key, Value]\n"
+      + "  ?Object = Merging Object\n"
+      + "  ?Function = Filter to parse key and value.\n"
+      + ") -> Object"
+      + "</pre>"
+  }],
+  ['ob.has', {
+    title: 'ob.has',
+    description:
+      "Returns Object has given property name.\n"
+      + "<pre>"
+      + "( Object\n"
+      + "  String = Property name\n"
+      + ") -> Boolean"
+      + "</pre>"
+  }],
+  ['ob.know', {
+    title: 'ob.know',
+    description:
+      "Returns given property name is chained or not.\n"
+      + "<pre>"
+      + "( Object\n"
+      + "  String = Property name\n"
+      + ") -> Boolean"
+      + "</pre>"
+  }],
+  ['ob.pick', {
+    title: 'ob.pick',
+    description:
+      "Picks values with given property names."
+      + "<pre>"
+      + "( Object\n"
+      + "  Array = Property name list\n"
+      + ") -> Array"
+      + "</pre>"
+  }],
+  ['ar.valid', {
+    title: 'ar.valid',
+    description: "Apply vr.valid() function to all elements"
+  }],
+  ['ar.repeat', {
+    title: 'ar.repeat',
+    description: "Fill array with specific value and length."
+  }],
+  ['ar.range', {
+    title: 'ar.range',
+    description: "Fill array with incremented integer"
+  }],
+  ['ar.clone', {
+    title: 'ar.clone',
+    description: "Clone array."
+  }],
+  ['ar.diff', {
+    title: 'ar.diff',
+    description: "Find differences among arrays."
+  }],
+  ['ar.index', {
+    title: 'ar.index',
+    description: "Finds an index of value."
+      + "<pre>"
+      + "( Array = Heystack\n"
+      + "  a = Needle\n"
+      + "  ?Boolean = Returns all or not.\n"
+      + ")-> Integer || Boolean || Array"
+      + "</pre>"
+  }],
+  ['ar.intersect', {
+    title: 'ar.intersect',
+    description: "Intersect array"
+      + "<pre>"
+      + "( Array = Heystack\n"
+      + "  ...\n"
+      + ")-> Array"
+      + "</pre>"
+  }],
+  ['ar.has', {
+    title: 'ar.has',
+    description: "Check array has a value."
+  }],
+  ['ar.unique', {
+    title: 'ar.unique',
+    description: 'Remove duplicated element and generate new Array.'
+  }],
+  ['ar.sort', {
+    title: 'ar.sort',
+    description: "Sort array with a callback. 'return null' will ignore element completely. 'return false' will put elements at tail."
+  }],
+  ['ar.map', {
+    title: 'ar.map',
+    description: 'Iterates all elements.'
+  }],
+  ['ar.each', {
+    title: 'ar.each',
+    description: "Iterates all elements. While Array.map can not call break/contiue, ar.each has way to break/continue."
+  }],
+  ['ar.filter', {
+    title: 'ar.filter',
+    description: "Similary to Array.filter, iterates and filters all elements."
+  }],
+  ['st.repeat', {
+    title: 'st.repeat',
+    description: "Repeat string n times."
+      + "<pre>"
+      + "( String\n"
+      + "  Integer = Count\n"
+      + ")-> String"
+      + "</pre>"
+  }],
+  ['st.to_camel', {
+    title: 'st.to_camel',
+    description:
+      "Converts snake_cased string to camelCased string."
+      + "<pre>"
+      + "( String\n"
+      + "  ?String|RegExp = Separator String|RegExp. default=/[\-_\.]/\n"
+      + "  ?String = glue charactor for concat. default=''\n"
+      + ")-> String"
+      + "</pre>"
+  }],
+  ['st.to_snake', {
+    title: 'st.to_snake',
+    description:
+      "Converts camelCased string to snake_cased string."
+      + "<pre>"
+      + "( String\n"
+      + "  String = glue charactor\n"
+      + "  ?Boolean = keep-case flag\n"
+      + ")-> String"
+      + "</pre>"
+  }],
+  ['st.fill', {
+    title: 'st.fill',
+    description: "Repeat string untill fill length n."
+      + "<pre>"
+      + "( String\n"
+      + "  Integer = string width\n"
+      + ")-> String</pre>"
+  }],
+  ['st.pad', {
+    title: 'st.pad',
+    description: "Put padding string to string"
+      + "<pre>\n"
+      + "( String\n"
+      + "  Integer = string width,\n"
+      + "  ?String = padding charactor,\n"
+      + "  ?Integer = direction\n"
+      + ")-> String</pre>"
+  }],
+  ['st.padl', {
+    title: 'st.padl',
+    description: "Alias for st.pad($a1, $a2, $a3, -1)"
+  }],
+  ['st.padr', {
+    title: 'st.padr',
+    description: "Alias for st.pad($a1, $a2, $a3, 1)"
+  }],
+  ['st.sort', {
+    title: 'st.sort',
+    description: "Sorts charactors."
+      + "<pre>\n"
+      + "( String\n"
+      + "  ?Function\n"
+      + ")-> String</pre>"
+  }],
+  ['st.is_maybe_integer', {
+    title: 'st.is_maybe_integer',
+    description:
+      "Matches strings which seems to be a integer."
+      + "<pre>"
+      + "( String\n"
+      + ")-> Boolean</pre>"
+  }],
+  ['st.is_maybe_float', {
+    title: 'st.is_maybe_float',
+    description:
+      "Matches strings which seems to be a float."
+      + "<pre>"
+      + "( String\n"
+      + ")-> Boolean</pre>"
+  }],
+  ['st.is_alpha', {
+    title: 'st.is_alpha',
+    description:
+      "Validate if the string contains only alphabets."
+      + "<pre>"
+      + "( String\n"
+      + ")-> Boolean</pre>"
+  }],
+  ['st.is_alpha_numeric', {
+    title: 'st.is_alpha_numeric',
+    description:
+      "Validate if the string contains only alpha-numeric."
+      + "<pre>"
+      + "( String\n"
+      + ")-> Boolean</pre>"
+  }],
+  ['st.match_cnjp', {
+    title: 'st.match_cnjp',
+    description: "<pre>"
+      + "( String\n"
+      + ")-> Array|Null</pre>"
+      + "Matches Chinese/Japanese charactors."
+  }],
+  ['fn.pack', {
+    title: "fn.pack",
+    description: "Package named functions to object."
+      + "<pre>"
+      + "( Array = List of functions \n"
+      + ")-> Object"
+      + "</pre>"
+  }],
+  ['fn.proxy', {
+    title: "fn.proxy",
+    description: "Binds a context."
+      + "<pre>"
+      + "( Function\n"
+      + "  Object = Context\n"
+      + ")-> Object"
+      + "</pre>"
+  }],
+  ['fn.partial', {
+    title: "fn.partial",
+    description: "Makes a partialized function."
+      + "<pre>"
+      + "( Function = List of functions \n"
+      + "  ?String ... = Type names to pass to vr.valid \n"
+      + ")-> Function"
+      + "</pre>"
+  }],
+  ['fn.promise', {
+    title: "fn.promise",
+    description:
+      "Returns a FM_Promise object."
+      + "<pre>"
+      + "( Function(resolver, rejector) | Nothing\n"
+      + ")-> FM_Promise"
+      + "</pre>"
+      + "<pre>"
+      + "FM_Promise\n"
+      + "  state\n"
+      + "  expired\n"
+      + "  then( Function(first, previous) )\n"
+      + "  catch( Function(first, previous) )\n"
+      + "  resolve( a )\n"
+      + "  reject( a )\n"
+      + "</pre>"
+  }],
+  ['fn.swear', {
+    title: "fn.swear",
+    description: "Observe many of FM_Promise. Similar to jQuery.when()."
+  }],
+  ['event.create', {
+    title: 'event.create',
+    description: "Create a new FM_Event instance."
+      + '<p class="caution">While FM.event can attach an event to all references(like Object), FM.event uses loaded FM scope to manage all of created events. '
+      + 'If you mind about performance, I can\'t recommend to use this method.</p>'
+  }],
+  ['event.bind', {
+    title: 'event.bind',
+    description: "Binds event to an Object"
+      + '<p class="caution">While FM.event can attach an event to all references(like Object), FM.event uses loaded FM scope to manage all of created events. '
+      + 'If you mind about performance, I can\'t recommend to use this method.</p>'
+      + '<div style="padding: .4em;"><button class="button" id="button-event-A">Button A</button></div>'
+  }],
+  ['event.unbind', {
+    title: 'event.unbind',
+    description:
+      "Unbinds events from Object"
+      + '<div style="padding: .4em;"><button class="button" id="button-event-unbind-1">Button</button></div>'
+      + '<div style="padding: .4em;"><button class="button" id="button-event-unbind-2">Bind</button>'
+      + '<button class="button" id="button-event-unbind-3">Unbind</button></div>'
+  }],
+  ['time.monitor', {
+    title: 'time.monitor',
+    description:
+      "Validate state later and trigger callbacks. This may be convenient to observe event that triggered multiple times in a short term like as window.onresize."
+      + "<pre>"
+      + "( Integer\n"
+      + "  Function(a)\n"
+      + ")-> Function(a, Function|undefined)"
+      + "</pre>"
+  }],
+  ['uri.serialize', {
+    title: 'uri.serialize',
+    description: "Serializes URI string to Object"
+      + "<pre>"
+      + "( Object\n"
+      + "  ?Array = Default depth.\n"
+      + ")-> String"
+      + "</pre>"
+  }],
+  ['uri.unserialize', {
+    title: 'uri.unserialize',
+    description: "Unserializes URI string to Object."
+      + "<pre>"
+      + "( String = URI query string\n"
+      + "  ?Object = Default object=n"
+      + ")-> Object"
+      + "</pre>"
+  }],
+  ['dom.query', {
+    title: 'dom.query',
+    description: "Returns matched DOM Elements with FM_DOMQuery."
+  }],
+  ['dom.find', {
+    title: 'dom.find',
+    description: "Returns a matched DOM Element."
+  }],
+  ['dom.each', {
+    title: 'dom.each',
+    description: "Applies callback to matched DOM Elements"
+  }],
+  ['dom.map', {
+    title: 'dom.map',
+    description: "Applies callback to matched DOM Elements"
+  }],
+  ['dom.create', {
+    title: 'dom.create',
+    description: "Create new HTMLElement"
+  }],
+  ['dom.prop', {
+    title: 'dom.prop',
+    description: "Set/Get DOM properties."
+  }],
+  ['dom.attr', {
+    title: 'dom.attr',
+    description: "Set/Get DOM attributes."
+  }],
+  ['dom.html', {
+    title: 'dom.html',
+    description: "Set/Get DOM innerHTML."
+  }],
+  ['dom.text', {
+    title: 'dom.text',
+    description: "Set/Get DOM innerText."
+  }],
+  ['dom.style', {
+    title: 'dom.style',
+    description: "Set DOM styles."
+  }],
+  ['dom.append', {
+    title: 'dom.append',
+    description: "Inserts cloned/referenced element."
+  }],
+  ['dom.prepend', {
+    title: 'dom.prepend',
+    description: "Inserts cloned/referenced element before firstChild."
+  }],
+  ['dom.remove', {
+    title: 'dom.remove',
+    description: "Removes matched elements."
+      + '<p id="dom-remove-sample-target">THIS IS SAMPLE</p>'
+  }],
+  ['dom.empty', {
+    title: 'dom.empty',
+    description: "Emptifies matched elements."
+      + '<p id="dom-empty-sample-target" style="background: #aabaff; padding: 1em;"><span style="background: #efefaa;">THIS IS SAMPLE</span></p>'
+  }],
+  ['dom.toggle_class', {
+    title: 'dom.toggle_class',
+    description: "Turns on/off matched element's classes."
+  }],
+  ['dom.add_class', {
+    title: 'dom.add_class',
+    description: "Adds classes to matched elements"
+  }],
+  ['dom.remove_class', {
+    title: 'dom.remove_class',
+    description: "Removess classes from matched elements"
+  }],
+  ['html.trim', {
+    title: 'html.trim',
+    description: "Trims tags from html texts."
+  }],
+  ['html.escape', {
+    title: 'html.escape',
+    description: "Escapes HTML entities."
+  }],
+  ['html.unescape', {
+    title: 'html.unescape',
+    description: "Unescapes HTML entity charcodes."
+  }],
+  ['date.now', {
+    title: 'date.now',
+    description: 'Returns formated Date object'
+      + "<pre>"
+      + "( String"
+      + ")-> FM_Date"
+      + "</pre>"
+      + "<pre>"
+      + "FM_Date\n"
+      + "  origin : Original (new Date) instance.\n"
+      + "  update( String )\n"
+      + "  date\n"
+      + "  day\n"
+      + "  fullyear\n"
+      + "  hours\n"
+      + "  milliseconds\n"
+      + "  minutes\n"
+      + "  month\n"
+      + "  seconds\n"
+      + "  time\n"
+      + "  timezoneoffset\n"
+      + "  update\n"
+      + "  utcdate\n"
+      + "  utcday\n"
+      + "  utcfullyear\n"
+      + "  utchours\n"
+      + "  utcmilliseconds\n"
+      + "  utcminutes\n"
+      + "  utcmonth\n"
+      + "  utcseconds\n"
+      + "  year"
+      + "</pre>"
+  }],
+  ['date.at', {
+    title: 'date.at',
+    description: 'Same as FM.date.now().update(DATE)'
+  }]
+];
+
+var result;
+var sample;
+var revert;
+var prevfile = null;
+var prevgroup = null;
+
+(new CodeSnap({
+  wrapper: 'content',
+  files: files,
+  events: {
+    before_load: function(){
+      result = undefined;
+      sample = undefined;
+      revert = undefined;
+      actions = undefined;
+    },
+    loaded: function(f, src, data, wrp){
+      var self = this;
+      if(result !== undefined){
+        self.render_result(function(res){
+          res.innerHTML = JSON.stringify(result);
+          Prism.highlightElement(res);
+        });
+      }
+      
+      if(actions){
+        for(var k in actions){
+          self.append_button(k, function(btn){
+            FM.event.bind(btn, 'click', actions[k]);
+          });
+        }
+      }
+
+      if(sample !== undefined && typeof sample === 'function'){
+        self.append_button("run", function(btn){
+          FM.event.bind(btn, 'click', sample);
+        });
+      }
+      if(revert !== undefined && typeof revert === 'function'){
+        self.append_button("revert", function(btn){
+          FM.event.bind(btn, 'click', revert);
+        });
+      }
+      Prism.highlightElement(
+        document.getElementById(wrp.id + '-code')
+      );
+    },
+    indexed: function(wrap, anc, file){
+
+      var pns = prevfile ? prevfile.name.split(".")[0] : null;
+      var cns = file.name.split('.')[0];
+      var row, cap;
+
+      FM.dom.add_class(anc, 'button');
+
+      if(pns != cns){
+        row = document.createElement('div');
+          row.className = 'index-row index-row-' + cns;
+        cap = document.createElement('div');
+          cap.className = 'index-caption';
+          cap.innerHTML = '<a href="' + anc.getAttribute('href') + '">' + cns + '.</a>';
+        prevgroup = document.createElement('div');
+          prevgroup.className = 'index-content';
+
+        row.appendChild(cap);
+        row.appendChild(prevgroup);
+        wrap.appendChild(row);
+      }
+
+      prevfile = file;
+      prevgroup.appendChild(anc);
+    }
+  }
+}).load());
+
+setTimeout(function(){
+  var l = FM.time.loop(null);
+  var mo = FM.dom.create('div');
+  FM.dom.prepend('h1', mo);
+  l(function(f){
+    var d = FM.date.now();
+    FM.dom.text(mo,
+      FM.st.padl(d.hours, 2, '0')
+      + ':' + FM.st.padl(d.minutes, 2, '0')
+      + ':' + FM.st.padl(d.seconds, 2, '0'));
+  });
+}, 2000);
+</script>
+</body>
+
+</html>

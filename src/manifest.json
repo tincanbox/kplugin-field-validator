@@ -1,0 +1,73 @@
+{
+  "manifest_version": 1,
+  "version": 1,
+  "type": "APP",
+  "icon": "asset/image/icon.png",
+  "name": {
+    "en": "kplugin-field-validator"
+  },
+  "description": {
+    "en": "Simple field validator based on validate.js JavaScript Object validator. Supports basic validation feature with RegExp."
+  },
+
+  "config": {
+    "html": "asset/view/config.html",
+    "js": [
+      "https://js.cybozu.com/jquery/3.3.1/jquery.min.js",
+      "vendor/kluginn/req/tabulator/js/tabulator.min.js",
+      "vendor/kluginn/req/popperjs/popper.min.js",
+      "vendor/kluginn/req/dropzone/dropzone.js",
+      "vendor/kluginn/req/bootstrap/js/bootstrap.bundle.min.js",
+      "vendor/kluginn/req/fmjs/src/fm.js",
+      "vendor/kluginn/req/papaparse/papaparse.min.js",
+      "vendor/kluginn/req/sweetalert2/sweetalert2.all.min.js",
+      "vendor/kluginn/req/underscore/underscore-min.js",
+      "vendor/kluginn/dist/kluginn.js",
+      ".build/config.js"
+    ],
+    "css": [
+      "asset/css/51-modern-default.css",
+      "https://js.cybozu.com/font-awesome/v5.5.0/css/fontawesome-all.min.css",
+      "vendor/kluginn/req/bootstrap-BSTRP/dist/css/bootstrap.min.css",
+      "vendor/kluginn/req/tabulator/css/tabulator.min.css",
+      "asset/css/config.css",
+      "vendor/kluginn/req/sweetalert2/sweetalert2.min.css"
+    ],
+    "required_params": [
+    ]
+  },
+
+  "desktop": {
+    "js": [
+      "https://js.cybozu.com/jquery/3.3.1/jquery.min.js",
+      "vendor/kluginn/req/popperjs/popper.min.js",
+      "vendor/kluginn/req/dropzone/dropzone.js",
+      "vendor/kluginn/req/bootstrap/js/bootstrap.bundle.min.js",
+      "vendor/kluginn/req/fmjs/src/fm.js",
+      "vendor/kluginn/req/papaparse/papaparse.min.js",
+      "vendor/kluginn/req/sweetalert2/sweetalert2.all.min.js",
+      "vendor/kluginn/req/underscore/underscore-min.js",
+      "vendor/kluginn/dist/kluginn.js",
+      ".build/desktop.js"
+    ],
+    "css": [
+      "asset/css/51-modern-default.css",
+      "https://js.cybozu.com/font-awesome/v5.5.0/css/fontawesome-all.min.css",
+      "vendor/kluginn/req/bootstrap-BSTRP/dist/css/bootstrap.min.css",
+      "asset/css/desktop.css"
+    ]
+  },
+
+  "mobile": {
+    "js": [
+      "https://js.cybozu.com/jquery/3.3.1/jquery.min.js",
+      "vendor/kluginn/req/fmjs/src/fm.js",
+      "vendor/kluginn/req/papaparse/papaparse.min.js",
+      "vendor/kluginn/req/sweetalert2/sweetalert2.all.min.js",
+      "vendor/kluginn/req/underscore/underscore-min.js",
+      "vendor/kluginn/dist/kluginn.js",
+      ".build/mobile.js"
+    ]
+  }
+
+}

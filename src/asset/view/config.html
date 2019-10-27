@@ -1,0 +1,62 @@
+<section class="kplugin-config BSTRP">
+  <section class="container">
+
+    <section class="row mb-2">
+      <h2 class="kplugin-config-heading" style="padding: 12px 0;">
+        <span>Settings for kplugin</span>
+        <i class="fa fa-question-circle" data-action="show-help"></i>
+      </h2>
+    </section>
+
+    <section class="row mb-2">
+      <div class="btn-group">
+        <button class="btn btn-primary" data-action="config-table-save">
+          <i class="fa fa-save"></i>
+          Save
+        </button>
+        <button class="btn btn-dark" data-action="config-table-add-row">
+          <i class="fa fa-plus"></i>
+          Add Row
+        </button>
+        <button class="btn btn-dark" data-action="config-table-upload">
+          <i class="fa fa-cloud-upload-alt"></i>
+          Upload
+        </button>
+        <button class="btn btn-dark" data-action="config-table-download">
+          <i class="fa fa-cloud-download-alt"></i>
+          Download
+        </button>
+      </div>
+    </section>
+
+    <section class="row mb-2">
+      <div id="config-table" style="width: 100%;">Loading Table Data...</div>
+    </section>
+
+    <hr class="mt-10 mb-10">
+
+    <!-- sample -->
+    <section class="row mb-2">
+      <h3>Sample</h3>
+    </section>
+
+    <section class="row mb-2">
+      <p>You should .plugin-data class to fetch all data via K.config.retrieve_form_data()</p>
+    </section>
+
+    <section class="row mb-2">
+      <input
+        class="form-control plugin-data"
+        name="some_value"
+        placeholder="This is some value ..."/>
+    </section>
+
+  </section>
+
+  <button id="save" class="kintoneplugin-button-normal">Save</button>
+
+</section>
+
+<script type="text/template" id="template:help">
+<p class="muted">value-validator uses <a href="https://validatejs.org">https://validatejs.org</a> as main library.</p>
+</script>

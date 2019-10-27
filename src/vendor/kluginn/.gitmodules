@@ -1,0 +1,3 @@
+[submodule "req/fmjs"]
+	path = req/fmjs
+	url = git@github.com:tincanbox/fmjs.git

@@ -1,0 +1,3 @@
+[submodule "asset/codesnapjs"]
+	path = asset/codesnapjs
+	url = git@gitlab.com:nigratruo/codesnapjs.git

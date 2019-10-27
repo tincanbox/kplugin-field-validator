@@ -10,7 +10,11 @@ import validator from '../../vendor/validate/validate.min.js';
   var K = p;
   var $ = K.$;
   var S = {
-    config: K.config.fetch()
+    config: K.config.fetch(),
+    pattern_list: {
+      "phonenumber": /(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))*[)]?[-\.]?[(]?[0-9]{1,3}[)]?([-\.]?[0-9]{3})([-\.]?[0-9]{3,4})/,
+      "zipcode": 
+    }
   };
 
   K.init().then(main);
@@ -69,18 +73,18 @@ import validator from '../../vendor/validate/validate.min.js';
     var o = f[tg] = f[tg] || {};
 
     switch(tp){
+      /* Additional pattern types.
+       */
       case "phonenumber":
-        o.format = {
-          pattern: /(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))*[)]?[-\.]?[(]?[0-9]{1,3}[)]?([-\.]?[0-9]{3})([-\.]?[0-9]{3,4})/
-        };
-        tp = 'format';
-        break;
       case "zipcode":
         o.format = {
-          pattern: /^\d{5}(-\d{4})?$/
+          pattern: S.pattern_list[tp]
         };
         tp = 'format';
         break;
+
+      /* Override method.
+       */
       case "custom":
         if(a.param.length == 0){
           throw new Error("custom type should have valid param-JSON");

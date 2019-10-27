@@ -13,7 +13,7 @@ import validator from '../../vendor/validate/validate.min.js';
     config: K.config.fetch(),
     pattern_list: {
       "phonenumber": /(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))*[)]?[-\.]?[(]?[0-9]{1,3}[)]?([-\.]?[0-9]{3})([-\.]?[0-9]{3,4})/,
-      "zipcode": 
+      "zipcode": /^d{3}-d{4}$/
     }
   };
 

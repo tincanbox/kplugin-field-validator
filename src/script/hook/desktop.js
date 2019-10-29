@@ -12,7 +12,8 @@ import validator from '../../vendor/validate/validate.min.js';
   var S = {
     config: K.config.fetch(),
     pattern_list: {
-      "phonenumber": /(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))*[)]?[-\.]?[(]?[0-9]{1,3}[)]?([-\.]?[0-9]{3})([-\.]?[0-9]{3,4})/,
+      "phonenumber": /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/
+,
       "zipcode": /^d{3}-d{4}$/
     }
   };
@@ -89,9 +90,13 @@ import validator from '../../vendor/validate/validate.min.js';
         if(a.param.length == 0){
           throw new Error("custom type should have valid param-JSON");
         }
-        var j = JSON.parse(a.param);
-        if(j instanceof Object){
-          o = FM.ob.merge(o, j);
+        try{
+          var j = eval('(function(){ "use strict"; return ' + a.param + ';}).call(null)');
+          if(j instanceof Object){
+            o = FM.ob.merge(o, j);
+          }
+        }catch(e){
+          throw new Error("It seems your custom parameter is not valid...");
         }
         break;
       default:
